@@ -24,7 +24,7 @@ class Bangldesh{
 
     Bangldesh bangldesh (){
       return this;
-    };
+    }
 
 
 }

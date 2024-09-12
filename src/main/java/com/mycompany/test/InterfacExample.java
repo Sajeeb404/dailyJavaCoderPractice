@@ -26,7 +26,7 @@ interface Animals {
 
     default void m(){
         System.out.println("hello im default method");
-    };
+    }
 
     static void names(){
         System.out.println("I'm static method");
@@ -40,8 +40,7 @@ class Cats implements Animals{
 
      void ms(){
         Animals.super.m();
-    };
-
+    }
 
 
     public static void main(String[] args) {

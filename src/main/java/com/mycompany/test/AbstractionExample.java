@@ -44,7 +44,7 @@ abstract class Bank {
    abstract int getRateOfInterest();
    int b;
    String s;
-   void add(){};
+   void add(){}
 
     public Bank(int b, String s) {
         this.b = b;
@@ -108,7 +108,7 @@ class Tests implements A{
 
 abstract class ab implements bd{
 
-    int m(){return 0;};
+    int m(){return 0;}
 
     public ab() {
     }
