@@ -20,9 +20,19 @@ public class AdditionQuiz {
         
         int answer = input.nextInt();
         System.out.println("The answer is " + numberOne + " + " + numberTwo + " = " + (numberOne + numberTwo == answer));   
+
+
+
         
+
+
+
     
-    } 
+    }
+
+
+
+
     
     
 }
