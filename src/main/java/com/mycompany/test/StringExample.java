@@ -3,6 +3,7 @@ package com.mycompany.test;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class StringExample {
 
@@ -523,6 +524,18 @@ public class StringExample {
         System.out.println(str4.equals(b));
         System.out.println(str4.equals(b.toString()));*/
 
+//        Java String equalsIgnoreCase()
+//        ---------------------------------------------------------------------------------------------
+//        The Java String class equalsIgnoreCase() method compares the two given strings on the basis of
+//                the content of the string irrespective of the case (lower and upper) of the string.
+//                It is just like the equals() method but doesn't check the case sensitivity.
+//        If any character is not matched, it returns false, else returns true.
+
+
+//        System.out.println("java".equalsIgnoreCase("Java"));
+////        true because same content. not effect lower or upper case. it's just ignore that
+//        System.out.println("Java".equalsIgnoreCase("Python"));
+
 
 //        boolean isEmpty()
 //-----------------------------------------------------------------------------------------------
@@ -568,36 +581,384 @@ public class StringExample {
 //        Blank strings are those strings that contain only white spaces. The isEmpty() method comes in very
 //        handy to check for the blank strings. Consider the following example.
 
+//
+//        String st = "  ";
+//
+//        if (st.length() == 0){
+//            System.out.println("The length is 0");
+//        } else if (st.length()> 0 && st.trim().isEmpty()) {
+//
+//            System.out.println("The length now trimed and empty");
+//        }else {
+//            System.out.println("The length is not 0 or not trimed and now is not empty");
+//        }
+//        System.out.println(st);
+//
+//        String str = " Rakib                  sout    ";
+//
+//        if (str.length() == 0){
+//            System.out.println("The length is 0");
+//
+//        } else if (str.length()> 0 && str.trim().isEmpty()) {
+//            System.out.println("The length is not 0 or not trimed and now is not empty");
+//
+//        }else {
+//            System.out.println("The length is not 0 or not trimed and now is not empty");
+//
+//        }
+//
+//        System.out.println(str);
 
-        String st = "  ";
+//        Java String concat()
+//----------------------------------------------------------------------------------------------
+//
+//        The Java String class concat() method combines specified string at the end of
+//        this string. It returns a combined string.
 
-        if (st.length() == 0){
-            System.out.println("The length is 0");
-        } else if (st.length()> 0 && st.trim().isEmpty()) {
 
-            System.out.println("The length now trimed and empty");
-        }else {
-            System.out.println("The length is not 0 or not trimed and now is not empty");
-        }
-        System.out.println(st);
+//        String str = "Sajeeb is a java developer";
+//        System.out.println(str);
+//        str=str.concat(" and Rakib also.");
+//        System.out.println(str);
 
-        String str = " Rakib                  sout    ";
+//        so in hare proved java string is immutable we can't change the value of string by through the method
+//                to concat assign it.
 
-        if (str.length() == 0){
-            System.out.println("The length is 0");
 
-        } else if (str.length()> 0 && str.trim().isEmpty()) {
-            System.out.println("The length is not 0 or not trimed and now is not empty");
+//        String str1 = "Sajeeb";
+//        String str2 = "Rakib";
+//        String str3 = "Seli";
+//
+//        String str4 = str1.concat(str2).concat(str3);
+//        char e = 'S';
+//        int count =0;
+//    for (int i = 0; i<str4.length();i++){
+//        if (str4.charAt(i) == e){
+//            count++;
+//        }
+//
+//    }
 
-        }else {
-            System.out.println("The length is not 0 or not trimed and now is not empty");
+//        System.out.println(count);
+//
+//            String str = "Country";
+////also use this way
+//        System.out.println("Bangladesh is my ".concat(str));
+//
+//
+//        Java String replace().
+//-----------------------------------------------------------------------------------------------------------
+//        The Java String class replace() method returns a string replacing all the old char or CharSequence
+//        to new char or CharSequence.//
+//        Since JDK 1.5, a new replace() method is introduced that allows us to replace a sequence of char values.
 
-        }
 
-        System.out.println(str);
+        /*it is just like a find and replacement
+        * we are use this system in ms word. it is work same like that.
+        * */
+//        String str = "Bangladesh is a small country in the world";
+////        this is letter replacment
+//        String st = str.replace('a', 'b');
+//        System.out.println(st);
+//
+////        This is a charsequenc replacement
+//        String repStr = str.replace("Bangladesh", "India");
+//
+//        System.out.println(repStr);
+//
+//        The replace() method throws the NullPointerException when the
+//        replacement or target is null. The following example confirms the same.
+
+//        String st = "Hello Java i'm hare ";
+//
+////        String stt = st.replace(null, "s");
+//        String  sttt = st.replace("a",null);
+//        System.out.println(sttt);
+
+//        Java String replaceAll()
+//----------------------------------------------------------------------------------------------------------------------
+//        The Java String class replaceAll() method returns a string replacing all
+//          the sequence of characters matching regex and replacement string.
+
+//        String  str = "Hello Java we hear you, are hear to me";
+//
+//        String strs = str.replaceAll("h", "d");
+
+//        System.out.println(strs);
+/*
+        replaceAll: Uses regular expressions, allowing for complex patterns and substitutions.
+        replaceAll: Takes a String regex pattern and a replacement String.
+                replace is simpler and faster for straightforward replacements,
+        while replaceAll provides greater flexibility for more complex pattern-based replacements.*/
+
+
+//        : remove white spaces
+
+//        String str = "                    hello java i'm developer ";
+//        System.out.println(str);
+//
+//        String strss = str.replace(" ", "");
+//        System.out.println(strss);
+//
+////        String strs = str.replaceAll("\\s","");
+////        System.out.println(strs);
+//
+//        The replaceAll() method throws the PatternSyntaxException when there is an improper regular expression.
+
+////        adding white space
+//        System.out.println("HelloJava".replace("", " "));
+//        System.out.println("HelloJavaiamJavaDeveloper".replaceAll(""," "));
+//
+////        Even the null regular expression is also not accepted by the replaceAll() method as the NullPointerException is raised.
+//
+//        System.out.println("HelloJava".replaceAll(null,"rakib"));
+
+
+//        Java String split()
+//----------------------------------------------------------------------------------------------------------------------
+
+//        The java string split() method splits this
+//        string against given regular expression and returns a char array.
+
+
+//        String st = "Ja va is my li fe";
+//
+//        String[] words = st.split("\\s");
+//
+//        this mean ur String
+//        for (String s: words){
+//            System.out.println(s);
+//        }
+
+//        String str = "Dhaka is   thd capital of Bangladesh";
+//        String[] dt = {"hell", "","Two"};
+//        split mean split the condition and return array of list
+
+//        String[] stre = str.split("\\s",3);
+//
+//        for (int i = 0; i< stre.length; i++){
+//            System.out.println(stre[i]);
+//        }
+//        System.out.println(stre.length);
+//
+//        for (String st: stre){
+////            System.out.print(st);
+//            System.out.println(st);
+//        }
+
+//       String[] st = str.split("\\s",0);
+//         in this line 0 limit, remove space and divided it and return array of string but
+//        in line you have more the one space as a sequence, in hare remove one space and
+//        another one count as a array indexm but index value is empty.
+//
+//        System.out.println(st.length);
+//
+//        for (String std: st){
+//            System.out.println(std);
+//        }
+
+
+//        String sts = "Java Developer is sthe bestt programmer";
+////         in hare bestt one t is split but another one remove but count array as a empty eary
+////                that why is array leght 4;
+//        String[] std = sts.split("t", 0);
+//        System.out.println(std.length);
+//        for (String sd : std){
+//            System.out.println(sd);
+//        }
+
+
+
+//        Java String intern()
+//---------------------------------------------------------------------------------------------------------------------
+//        The intern() method in Java is a part of the String class and plays a role in optimizing memory usage for strings.
+
+//        String st = new String("Hello").intern();
+//        String st1 = "Hello";
+//        String st2 = "Hello";
+//
+//        System.out.println(st == st1);
+//        System.out.println(st.hashCode());
+//        System.out.println(st1.hashCode());
+//        System.out.println(st2.hashCode());
+
+//        in hare 3 string are same memory location share each other
+//        When a string is created in Java, it occupies memory in the heap. Also,
+//        we know that the String class is immutable. Therefore, whenever we create a string
+//        using the new keyword, new memory is allocated in the heap for corresponding string,
+//        which is irrespective of the content of the array. Consider the following code snippet.
+
+
+
+//        Java String indexOf()
+//--------------------------------------------------------------------------------------------------------------------
+//        The Java String class indexOf() method returns the position of
+//                the first occurrence of the specified character or string in a specified string.
+//        in hare 4 type index method
+
+//        1. int indexOf(int ch)
+//        It returns the index position for the given char value
+
+//        String st = "Hello word";
+//        System.out.println(st.indexOf('H'));
+//        in hare i give him letter it's give me the letter index position (1st)
+//        if you need last l index u use lastindexof method
+
+
+
+//        2  int indexOf(int ch, int fromIndex)
+//        It returns the index position for the given char value and from index
+//        String st2 = "Hello lBangladesh";
+//        System.out.println(st2.indexOf('l', 7));
+
+//        3 int indexOf(String substring)
+//        It returns the index position for the given substring
+
+//        String st = "Hello java can you hear me, hello can java ";
+//        System.out.println(st.indexOf("can"));
+//
+//        4 int indexOf(String substring, int fromIndex)
+//        It returns the index position for the given substring and from index
+//        System.out.println(st.indexOf("can", 12));
+
+//        find out the tatal cheracter
+//         String st = "Hello java can you hear, me i'm Sajeeb";
+//
+//
+//         int count = 0;
+//         int fromIndex = 0;
+//         for (;;){
+//             int indx = st.indexOf('e',fromIndex);
+//             System.out.println(indx);
+//             if (indx>=0){
+//                 count++;
+//                 fromIndex = indx+1;
+//             }else {
+//                 break;
+//             }
+//         }
+//        System.out.println(st);
+//        System.out.println("The e is present ="+count);
+//
+//
+//
+//
+
+//
+//        String st = "Hello man wellcome to new bangladeeeeeesh";
+//
+//        int letterCount= 0;
+//        int fromIndex = 0;
+//
+//        for (;;){
+//
+//            int index = st.indexOf('e',fromIndex);
+//
+//            if (index>=0){
+//                letterCount++;
+//                fromIndex = index+1;
+//            }else {
+//                break;
+//            }
+//        }
+//        System.out.println(letterCount);
+
+
+//        Java String toLowerCase()
+//---------------------------------------------------------------------------------------------------------------------
+//        The java string toLowerCase() method returns the string in lowercase letter. In other
+//        words, it converts all characters of the string into lower case letter.
+
+//        String st = "HellO BanglaDeHS";
+//
+//        String stToLoercase= st.toLowerCase();
+//        System.out.println(stToLoercase);
+
+//        There are two variant of toLowerCase() method. The signature or syntax of string toLowerCase() method is given below:
+//
+//        public String toLowerCase()
+//        public String toLowerCase(Locale locale)
+
+//        now we see toLowerCase
+
+//        String st = "MY namE iS IsmaIl";
+//
+//        String stringEng= st.toLowerCase(Locale.ENGLISH);
+//        System.out.println(stringEng);
+//        String stringTur = st.toLowerCase(Locale.forLanguageTag("tr"));
+//        String stringIt = st.toLowerCase(Locale.forLanguageTag("it"));
+//        System.out.println(stringTur);
+//        System.out.println(stringIt);
+
+//        toLowerCase() use for lower the word
+//    toLowerCase(Locale clae) also same but in hare we see local word
+
+//        toLowerCase(): Converts all characters to lowercase based on the default locale.
+//        toLowerCase(Locale locale): Converts all characters to lowercase based on
+//        the specific locale rules, which can differ for special characters like I and İ.
+//        No Parameters: Converts all characters in the string to lowercase based on the default locale of the JVM.
+
+
+//        Java String toUpperCase()  toUpperCase(Locale locale)
+//-----------------------------------------------------------------------------------------------------------
+
+//        toUpperCase()
+//        It returns a string in uppercase.
+//        toUpperCase(Locale locale)
+//        It returns a string in uppercase using specified locale.
+
+//        toUpperCase() and toUpperCase(Locale locale)  also same to lowerMethod.
+//        lower use for lower the sentence and upper use for upper the sentence
+//        String st = "hello bangladeshIIiiii";
+//            String st2 = st.toUpperCase();
+//            System.out.println(st2);
+//            String stE = st.toUpperCase(Locale.ENGLISH);
+//        System.out.println(stE);
+//        String stT = st.toUpperCase(Locale.forLanguageTag("tr"));
+//        System.out.println(stT);
+
+//        in hare you see the difference
+
+
+
+//        String trim()
+//-----------------------------------------------------------------------------------------------------------------------
+//        It removes all beginning and ending spaces of this string.
+//        this method does not remove middle spaces
+//        String st = "     Hello         java  ";
+//        System.out.println(st);
+//
+//        System.out.println(st.trim());
+
+// String st1 = " Hello java ";
+//        System.out.println(st1.length());
+//        System.out.println(st1.trim().length());
+
+
+        String st = " abc ";
+        String st2 = " abc ";
+
+        System.out.println(st.hashCode() == st2.trim().hashCode());
+
+//        so hashcode also chages
+
+
+//        static String valueOf(int value)
+//--------------------------------------------------------------------------------------------------------------------------
+//        It converts given type into string. It is an overloaded method.
+
+
+
+
 
 
     }
+
+
+
+
+
+
 
 
 
