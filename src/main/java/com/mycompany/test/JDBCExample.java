@@ -265,8 +265,8 @@ class StatmentMethod{
 //                    int udateCout = statement.getUpdateCount();
 //                    System.out.println(udateCout+" row's affected");
 //            }
-
-
+            System.out.println();
+            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
         }
