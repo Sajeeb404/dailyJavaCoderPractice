@@ -1,19 +1,683 @@
 package com.mycompany.test;
 
+import javax.swing.text.StyledEditorKit;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class JavaConverSionExample {
+
+    public static void main(String[] args) {
+
+
+    }
+
+}
+
+class DecimalToOctal{
+
+    public static void main(String[] args) {
+
+        /*
+        * We can convert decimal to octal in java using Integer.toOctalString() method or custom logic.
+        * */
+
+
+//        Integer.toOctalString()
+//        -------------------------------------------------------------------------
+//        System.out.println(Integer.toOctalString(15));
+//        System.out.println(Integer.toOctalString(60));
+//
+//        System.out.println(Integer.parseInt("77", 8));
+
+        /*Java Decimal to Octal conversion: Custom Logic
+        //We can convert decimal to octal in java using custom logic.*/
+
+        System.out.println(toOctal(100));
+
+    }
+
+
+    public static String toOctal(int decimal){
+        int rem; //declaring variable to store remainder
+        String octal=""; //declareing variable to store octal
+        //declaring array of octal numbers
+        char octalchars[]={'0','1','2','3','4','5','6','7'};
+        //writing logic of decimal to octal conversion
+        while(decimal>0)
+        {
+            rem=decimal%8;
+            octal=octalchars[rem]+octal;
+            decimal=decimal/8;
+        }
+        return octal;
+    }
 
 
 
 }
 
+
+class OctalToDecimal{
+    public static void main(String[] args) {
+
+
+        /*We can convert octal to decimal in java using Integer.parseInt() method or custom logic.
+        *
+        *
+        *
+        *
+        *
+        * */
+
+        System.out.println(Integer.parseInt("17",8));
+
+        System.out.println(getDecimal(17));
+
+
+
+    }
+
+
+    public static int getDecimal(int octal){
+        //Declaring variable to store decimal number
+        int decimal = 0;
+        //Declaring variable to use in power
+        int n = 0;
+        //writing logic
+        while(true){
+            if(octal == 0){
+                break;
+            } else {
+                int temp = octal%10;
+                decimal += temp*Math.pow(8, n);
+                octal = octal/10;
+                n++;
+            }
+        }
+        return decimal;
+    }
+
+
+}
+
+
+class DecimalToHex{
+
+    public static void main(String[] args) {
+
+//        We can convert decimal to hexadecimal in java using Integer.toHexString() method or custom logic.
+
+
+        System.out.println(Integer.toHexString(256));
+
+        System.out.println( toHex(256));
+
+
+    }
+
+
+    public static String toHex(int decimal){
+        int rem;
+        String hex="";
+        char hexchars[]={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+        while(decimal>0)
+        {
+            rem=decimal%16;
+            hex=hexchars[rem]+hex;
+            decimal=decimal/16;
+        }
+        return hex;
+    }
+
+}
+
+
+class HexaDecimalToDecimal{
+
+    public static void main(String[] args) {
+//        We can convert hexadecimal to decimal in java using
+//        Integer.parseInt() method or custom logic.
+
+//        Integer.parseInt() method
+
+//        System.out.println(Integer.parseInt("10", 16));
+//        System.out.println(Integer.toHexString(19));
+
+
+        System.out.println("Decimal of a is: "+getDecimal("a"));
+        System.out.println("Decimal of f is: "+getDecimal("f"));
+        System.out.println("Decimal of 121 is: "+getDecimal("121"));
+
+
+
+
+    }
+
+
+    public static int getDecimal(String hex){
+        String digits = "0123456789ABCDEF";
+        hex = hex.toUpperCase();
+        int val = 0;
+        for (int i = 0; i < hex.length(); i++)
+        {
+            char c = hex.charAt(i);
+            int d = digits.indexOf(c);
+            val = 16*val + d;
+        }
+        return val;
+    }
+}
+
+
+
+
+class DecimalToBinary{
+    public static void main(String[] args) {
+
+        //        We can convert decimal to binary in java using Integer.toBinaryString() method or custom logic.
+
+//        String i = Integer.toBinaryString(2);
+//        System.out.println(i);
+//        System.out.println(Integer.toBinaryString(7));
+//
+//        System.out.println(Integer.parseInt("111",2));
+
+//        Java Decimal to Binary conversion: Custom Logic
+
+        System.out.println(toBinary(63));
+        System.out.println(Integer.parseInt("11111", 2));
+
+//0-0
+//1-1
+//10-2
+//11-3
+//100-4
+//101-5
+//110-6
+//111-7
+//1000-8
+//1001-9
+//1010-10
+
+    }
+//Java Decimal to Binary conversion: Custom Logic
+    public static ArrayList<Integer> toBinary(int decimal){
+
+        ArrayList<Integer> binary = new ArrayList<>();
+            if (decimal == 0){
+                binary.add(0);
+                return binary;
+            }
+
+        while (decimal>0){
+            binary.add(decimal%2);
+            decimal = decimal/2;
+        }
+
+        Collections.reverse(binary);
+        return binary;
+    }
+
+
+
+
+}
+
+
+
+
+
+
+class BinaryToDecimal{
+
+
+    public static void main(String[] args) {
+
+
+        /*We can convert binary to decimal in java using Integer.parseInt() method or custom logic.*/
+
+//        ***Integer.parseInt()
+//        The Integer.parseInt() method converts string to int with given redix.
+//        Radix refers to the base of a numeral system,
+        /*Binary (Base 2): Uses digits 0 and 1.
+        Octal (Base 8): Uses digits 0 to 7.
+        Decimal (Base 10): Uses digits 0 to 9.
+*/
+//        The signature of parseInt() method is given below:
+
+//        String  binary ="10";
+//        int decimal = Integer.parseInt(binary, 2);
+//        System.out.println(decimal);
+//        u can try this way
+
+//        System.out.println(Integer.parseInt("100",2));
+
+//        We can convert binary to decimal in java using custom logic.
+
+
+//        System.out.println(getDecimals(10));
+//
+//        System.out.println(Integer.parseInt("10",2));
+    }
+
+
+    public static int getDecimals(int binary){
+
+        int decimal = 0;
+        int n = 0;
+
+        while (true){
+            if (binary == 0){
+                break;
+            }else {
+                int reminder = binary % 10;
+                decimal += reminder * Math.pow(2,n);
+                binary = binary / 10;
+                n++;
+            }
+
+        }
+
+        return decimal;
+    }
+
+
+
+
+
+
+
+//    public static int getDecimal(int binary){
+//        int decimal = 0;
+//        int n = 0;
+//
+//        while (true){
+//        if (binary==0){
+//            break;
+//        }else {
+//            int temp = binary % 10;
+//            decimal += temp * Math.pow(2, n);
+//            binary = binary/10;
+//            n++;
+//        }
+//
+//        }
+//
+//
+//        return decimal;
+//
+//    }
+
+
+
+
+}
+
+
+
+
+
+
+class TimeStampToDate{
+
+
+    public static void main(String[] args) {
+
+//        You can format the Timestamp value using SimpleDateFormat class.
+//        Let's see the example of display Timestamp value without
+//        milliseconds.
+
+
+//        Timestamp ts = new Timestamp(System.currentTimeMillis());
+//        Date date1= new Date(ts.getTime());
+//
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+//
+//
+//        System.out.println(simpleDateFormat.format(date1));
+//
+//        The Timestamp class extends Date class. So, you can directly assign instance of
+//        Timestamp class into Date. In such case, output of Date object will be like Timestamp.
+//        But, it is not suggested by Java Doc because you may loose the milliseconds or nanoseconds of data.
+
+        Timestamp ts = new Timestamp(System.currentTimeMillis());
+
+        Date date = ts;
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMMM-yyyy");
+
+        System.out.println(formatter.format(date));
+
+
+
+
+
+
+    }
+}
+
+
+
+class DateToTimeStamp{
+
+
+    public static void main(String[] args) {
+
+
+
+
+
+//        Java Convert Date to Timestamp
+//        Java Convert Date to Timestamp
+//        We can convert Date to Timestamp in java using constructor of java.sql.Timestamp class.
+//
+//        The constructor of Timestamp class receives long value as an argument.
+//         So you need to convert date into long value using getTime() method of java.util.Date class.
+//
+//        You can also format the output of Timestamp using java.text.SimpleDateFormat class.
+
+        Date date = new Date();
+
+        Timestamp ts = new Timestamp(date.getTime());
+
+        System.out.println(ts);
+
+//        You can format the Timestamp value using SimpleDateFormat
+//        class. Let's see the example of display Timestamp
+//        value without milliseconds.
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+
+        System.out.println(simpleDateFormat.format(ts));
+
+
+
+
+
+//        Calendar c = Calendar.getInstance();
+//        c.set(2024,2,50);
+//        Date date = c.getTime();
+//
+////        SimpleDateFormat simpleDateFormat =  new SimpleDateFormat("dd/MMMM/yyyy");
+//
+//
+//        System.out.println(date);
+
+    }
+
+
+}
+
+
+
+
+
+class BooleanToString{
+
+    public static void main(String[] args) {
+
+
+
+        /*We can convert boolean to String in java using String.valueOf(boolean) method.
+        *
+        * The String.valueOf() method converts boolean to String.
+        * The valueOf() is the static method of String class.
+        *
+        * */
+        boolean b = true;
+        String s = String.valueOf(b);
+        System.out.println(s);
+
+        /*Alternatively, we can use Boolean.toString(boolean)
+         method which also converts boolean into String.
+         The Boolean.toString() method converts boolean to String.
+         The toString() is the static method of Boolean class.
+
+         */
+        boolean bb = false;
+        String ss = Boolean.toString(bb);
+        System.out.println(ss);
+
+
+
+//        int nubmer = 12345;
+//        int revers = 0;
+//
+//        while (nubmer != 0){
+//            int remainder = nubmer % 10;
+//            revers = revers * 10 + remainder; //54
+//            nubmer = nubmer/10;
+//        }
+
+
+
+
+
+
+    }
+}
+
+
+class StringToBoolean{
+
+    public static void main(String[] args) {
+
+        /*We can convert String to boolean in java using Boolean.parseBoolean(string) method.
+
+        To convert String into Boolean object, we can use Boolean.
+        valueOf(string) method which returns instance of Boolean class.
+
+        To get boolean true, string must contain "true". Here, case is ignored. So,
+        "true" or "TRUE" will return boolean true. Any other string value except "true" returns boolean false.
+*/
+
+        String st1 ="True";
+        String st2 = "true";
+        String st3 = "TRUE";
+        String st4 = "tRue";
+        String st5 = "trUe";
+        String st6 = "ok";
+
+//      The parseBoolean() method converts string into boolean primitive.
+        boolean b1 = Boolean.parseBoolean(st1);
+        boolean b2 = Boolean.parseBoolean(st2);
+        boolean b3 = Boolean.parseBoolean(st3);
+        boolean b4 = Boolean.parseBoolean(st4);
+        boolean b5 = Boolean.parseBoolean(st5);
+        boolean b6 = Boolean.parseBoolean(st6);
+
+
+//        The Boolean.valueOf() method converts string into Boolean object.
+        Boolean B1 = Boolean.valueOf(st1);
+        Boolean B2 = Boolean.valueOf(st2);
+        Boolean B3 = Boolean.valueOf(st3);
+        Boolean B4 = Boolean.valueOf(st4);
+        Boolean B5 = Boolean.valueOf(st5);
+        boolean B6 = Boolean.valueOf(st6);
+
+
+        System.out.println(b1);
+        System.out.println(b2);
+        System.out.println(b3);
+        System.out.println(b4);
+        System.out.println(b5);
+        System.out.println(b6);
+
+        System.out.println();
+
+        System.out.println(B1);
+        System.out.println(B2);
+        System.out.println(B3);
+        System.out.println(B4);
+        System.out.println(B5);
+        System.out.println(B6);
+
+
+
+    }
+}
+
+
+
+class IntToCharAndCharacter{
+
+
+
+    public static void main(String[] args) {
+
+/*We can convert int to char in java using typecasting.
+To convert higher data type into lower, we need to perform typecasting.
+Here, the ASCII character of integer value will be stored in the char variable.*/
+
+//        int i = 1;
+//        char c = (char) (i+'0');
+//        System.out.println(c);
+
+
+//        If you store integer value in a single quote, it will store actual character in char variable.
+//        int i = '9'; //uppercast compiler
+//        char c = (char) i;
+//        System.out.println(c);
+
+
+//        To get the actual value,
+//                you can also use Character.forDigit() method.
+
+        int REDIX = 10;
+        int a =9;
+        char c = Character.forDigit(a, REDIX);
+
+        System.out.println(c);
+
+
+        /*Definition: Radix, often referred to as the base of a numeral system, indicates the number of
+        unique digits, including zero, that a system uses to represent numbers. It is a fundamental
+        concept in mathematics and computer science that defines how numerical values are expressed and interpreted.
+        Key Points
+        Numeral Systems:
+        Different numeral systems use different radices. The most common ones include:
+        Binary (Base 2): Uses two digits (0 and 1).
+        Octal (Base 8): Uses eight digits (0 to 7).
+        Decimal (Base 10): Uses ten digits (0 to 9).
+        Hexadecimal (Base 16): Uses sixteen digits (0 to 9 and A to F).*/
+
+
+
+
+
+    }
+
+
+
+
+}
+
+
+
+class CharToInt{
+
+    public static void main(String[] args) {
+
+        /*We can convert char to int in java using various ways.
+        If we direct assign char variable to int, it will return ASCII value of given character.*/
+
+//        it will return ASCII value of given character
+        char c = '4';
+        int i  = c;
+        System.out.println(i);
+
+//        Java char to int Example: Character.getNumericValue()
+//            char c = '4';
+//            int i = Character.getNumericValue(c);
+//             System.out.println(i);
+
+
+        // Convert char to int
+//        char c = '8';
+//        int i = c -'0';
+//        System.out.println(i);
+
+
+//        char c2='9';
+//        // Convert char to String and then to int
+//        String ss = Character.toString(c2);
+//        String s = String.valueOf(c2);
+//        Integer i = Integer.valueOf(ss);
+//        int ii = Integer.parseInt(s);
+//
+//        System.out.println(i);
+
+
+
+    }
+}
+
+
+
+class DoubleToInt{
+
+    public static void main(String[] args) {
+//        We can convert double to int in java using typecasting.
+//                To convert double data type into int, we need to perform typecasting.
+
+        double d = 50.50;
+        int i = (int) d;
+        long l = (long) d;
+        Long L = Long.valueOf((long) d);
+        Integer I = Integer.valueOf((int) d);
+
+        Double dd = d;
+
+        int ii = dd.intValue();
+        long ll = dd.longValue();
+
+
+
+
+    }
+}
+
+
+class IntTodoubleAndDouble{
+
+    public static void main(String[] args) {
+
+    /*    We can convert int to double in java using assignment operator.
+        There is nothing to do extra because lower type can be converted to higher type implicitly.
+
+
+
+    */
+
+
+        int i = 20;
+
+        double d = i;
+
+        System.out.println(d);
+
+        /*We can convert int value to Double
+        object by instantiating Double class or calling Double.valueOf() method.*/
+
+        Double dd = Double.valueOf(i);
+        Long ll = Long.valueOf(i);
+
+        int ii = ll.intValue();
+        int iid = dd.intValue();
+        long lv = dd.longValue();
+        System.out.println(dd);
+
+
+
+
+
+    }
+
+}
 
 class LongTointAndInteger{
 

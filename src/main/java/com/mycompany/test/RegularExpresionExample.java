@@ -1,6 +1,6 @@
 package com.mycompany.test;
 
-import com.mysql.cj.xdevapi.DatabaseObject;
+
 
 import java.util.Scanner;
 import java.util.regex.MatchResult;
